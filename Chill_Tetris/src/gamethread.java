@@ -2,25 +2,50 @@ import java.util.Random;
 
 public class gamethread extends Thread {
 	
-	static int[][] board = Core.board;
-	static int blocknum = Core.blocknum;
-	static int vertical = Core.vertical; static int horizontal = Core.horizontal;
-	static int x = Core.x; static int y = Core.y;
-	static int flag = Core.flag; static int threadflag = Core.threadflag;
+	static int[][] board;
+	static int blocknum;
+	static int vertical; static int horizontal;
+	static int x; static int y;
+	static int flag; static int threadflag;
 	
 	public void run() {
+		preset();
+		blockchoice();
+		randomX();
+		flag=1;
+		setblock();
 		while(true)
 		{
 			try {
-				sleep(1000);
-				
-				
+				blockdownreferee();
+				flag=1;
+				setblock();
+				sleep(200);
+				if(threadflag == 1) {
+					reset();
+					blockchoice();
+					randomX();
+					flag=1;
+					setblock();
+				}
 				Core.showboard();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public static void reset() {
+		x=0; y=0; blocknum=0; threadflag=0;
+	}
+	
+	public static void preset() {
+		board = Core.board;
+		blocknum = Core.blocknum;
+		vertical = Core.vertical; horizontal = Core.horizontal;
+		x = Core.x; y = Core.y;
+		flag = Core.flag; threadflag = Core.threadflag;
 	}
 	
     public static void blockchoice() {
@@ -60,7 +85,7 @@ public class gamethread extends Thread {
                  x++;
             }
        }
-       else if(blocknum!=0) {
+       else if(blocknum==1) {
             if((x>vertical-2)||((board[x+1][y]!=0)||(board[x+1][y+1]!=0)||(board[x+1][y+2]!=0)||(board[x+1][y+3]!=0)))
                  threadflag=1;
             else {
@@ -346,6 +371,6 @@ public class gamethread extends Thread {
              board[x+1][y+1] = flag;
              board[x+2][y+1] = flag;
         }
-   }         
+    }         
 }
 

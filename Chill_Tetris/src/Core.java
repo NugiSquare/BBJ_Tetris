@@ -1,4 +1,3 @@
-import java.util.Random;
 
 public class Core {
 	//Call Threads
@@ -20,7 +19,10 @@ public class Core {
 		gt = new gamethread();
 		et = new eventthread();
 		
-		board = new int[horizontal][vertical];
+		threadflag = 0;
+		vertical = 20; horizontal = 10;
+		
+		board = new int[vertical][horizontal];
 		
 		resetboard();
 		
