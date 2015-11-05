@@ -46,7 +46,10 @@ public class Core {
 		System.out.println();
 		     for(int i=0; i<vertical; i++) {
 		         for(int j=0; j<horizontal; j++) {
-		        	 System.out.print(board[i][j]+" ");
+		        	 if(String.valueOf(board[i][j]).length()==1)
+		        		 System.out.print("#"+board[i][j]+" ");
+		        	 else
+		        		 System.out.print(board[i][j]+" ");
 		         }
 		         System.out.println();
 		     }

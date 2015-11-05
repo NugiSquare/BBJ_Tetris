@@ -13,12 +13,14 @@ public class gamethread extends Thread {
 		blockchoice();
 		randomX();
 		flag=1;
+		flag=blocknum;
 		setblock();
 		while(true)
 		{
 			try {
 				blockdownreferee();
 				flag=1;
+				flag=blocknum;
 				setblock();
 				sleep(200);
 				if(threadflag == 1) {
@@ -26,6 +28,7 @@ public class gamethread extends Thread {
 					blockchoice();
 					randomX();
 					flag=1;
+					flag=blocknum;
 					setblock();
 				}
 				Core.showboard();
@@ -208,7 +211,7 @@ public class gamethread extends Thread {
             }
        }
        else if(blocknum==14) {
-            if((x>vertical-4)||(board[x+1][y]!=0)||(board[x+3][y+1]!=0))
+            if((x>vertical-4)||(board[x+1][y]!=0)||(board[x+2][y+1]!=0)||(board[x+2][y+2]!=0))
                  threadflag=1;
             else {
                  flag=0;
