@@ -36,10 +36,12 @@ public class gamethread extends Thread {
 		}
 	}
 	
+	//reset specific variables
 	public static void reset() {
 		x=0; y=0; blocknum=0; threadflag=0;
 	}
 	
+	//call variables from class Core
 	public static void preset() {
 		board = Core.board;
 		blocknum = Core.blocknum;
@@ -48,12 +50,14 @@ public class gamethread extends Thread {
 		flag = Core.flag; threadflag = Core.threadflag;
 	}
 	
+	//select block's kind
     public static void blockchoice() {
         Random rd = new Random();
         blocknum = rd.nextInt(19);
         randomX();
     }
 	
+    //select block's starting point
 	public static void randomX() {
 		Random rd = new Random();
 		if(blocknum==0) {
@@ -75,6 +79,7 @@ public class gamethread extends Thread {
 		}
 	}
 	
+	//judge whether block can go down or not
     public static void blockdownreferee() {
    	 if(blocknum==0) {
             if((x>vertical-5)||(board[x+4][y]!=0))
@@ -249,7 +254,7 @@ public class gamethread extends Thread {
         }
     }
 
-	
+	//reflect block's state on board(which is Array)
     public static void setblock() {
         if(blocknum==0) {
              board[x][y] = flag;

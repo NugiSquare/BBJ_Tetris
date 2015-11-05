@@ -12,7 +12,6 @@ public class Core {
 	//flag is for block's particle's state
 	//time is for speed for falling blocks
 	//threadflag is for thread's state
-	//blahblah
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
