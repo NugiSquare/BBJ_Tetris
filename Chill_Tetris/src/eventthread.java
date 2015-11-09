@@ -10,7 +10,7 @@ public class eventthread extends Thread implements KeyListener {
 	}
 	
 	public void preset() {
-		x = Core.x; y =  Core.y;
+		x = gamethread.x; y =  gamethread.y;
 	}
 
 	@Override

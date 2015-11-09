@@ -1,56 +1,92 @@
 import java.util.Random;
 
 public class gamethread extends Thread {
-	
+	//Call Variables
 	static int[][] board;
-	static int blocknum;
-	static int vertical; static int horizontal;
-	static int x; static int y;
-	static int flag; static int threadflag;
+	static int vertical, horizontal, blocknum, x, y, flag, time, threadflag, failflag;
+	//vertical is for vertical size of board
+	//horizontal is for horizontal size of board
+	//x and y are for block's standard point
+	//flag is for block's particle's state
+	//time is for speed for falling blocks
+	//threadflag is for thread's state
 	
 	public void run() {
 		preset();
+		reset();
+		resetboard();
 		blockchoice();
 		randomX();
-		flag=1;
 		flag=blocknum;
 		setblock();
 		while(true)
 		{
+			blockdownreferee();
+			flag=blocknum;
+			setblock();
 			try {
-				blockdownreferee();
-				flag=1;
-				flag=blocknum;
-				setblock();
 				sleep(200);
-				if(threadflag == 1) {
-					reset();
-					blockchoice();
-					randomX();
-					flag=1;
-					flag=blocknum;
-					setblock();
-				}
-				Core.showboard();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			if(threadflag == 1) {
+				reset();
+				blockchoice();
+				randomX();
+				flag=blocknum;
+				setblock();
+				for(int i=0; i<horizontal; i++) {
+					if(board[4][i]!=0)
+						failflag=1;
+				}
+			}
+			showboard();
+			if(failflag==1)
+				break;
 		}
+		System.out.println("Failed!!!");
+	}
+	
+	//reset board
+	public static void resetboard() {
+		for(int i=0; i<vertical; i++) {
+			for(int j=0; j<horizontal; j++) {
+				board[i][j] = 0;
+			}
+		}
+	}
+	
+	//show board on console
+    public static void showboard() {
+		for(int i=0; i<horizontal; i++) {
+			System.out.print("---");
+		}
+		System.out.println();
+		     for(int i=0; i<vertical; i++) {
+		         for(int j=0; j<horizontal; j++) {
+		        	 if(String.valueOf(board[i][j]).length()==1)
+		        		 System.out.print(" "+board[i][j]+" ");
+		        	 else
+		        		 System.out.print(board[i][j]+" ");
+		         }
+		         System.out.println();
+		     }
+		     for(int i=0; i<horizontal; i++) {
+		    	 System.out.print("---");
+		     }
+		System.out.println();
+		System.out.println(gamethread.blocknum);
+	}
+	
+	public static void preset() {
+		vertical = 23; horizontal = 10; failflag=0;
+		board = new int[vertical][horizontal];
 	}
 	
 	//reset specific variables
 	public static void reset() {
 		x=0; y=0; blocknum=0; threadflag=0;
-	}
-	
-	//call variables from class Core
-	public static void preset() {
-		board = Core.board;
-		blocknum = Core.blocknum;
-		vertical = Core.vertical; horizontal = Core.horizontal;
-		x = Core.x; y = Core.y;
-		flag = Core.flag; threadflag = Core.threadflag;
 	}
 	
 	//select block's kind
