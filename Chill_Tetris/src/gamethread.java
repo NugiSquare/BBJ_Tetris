@@ -415,6 +415,19 @@ public class gamethread extends Thread {
              board[x+1][y+1] = flag;
              board[x+2][y+1] = flag;
         }
-    }         
+    }
+    public static int checkRight()
+    {
+    	//if there is a block on right side or x>10
+    	//can't move & return 1
+    	return 0;
+    }
+    
+    public static int checkLeft()
+    {
+    	//if there is a block on left side or x<0
+    	//can't move & return 1
+    	return 0;
+    }
 }
 
