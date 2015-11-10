@@ -92,14 +92,14 @@ public class gamethread extends Thread {
 	//select block's kind
     public static void blockchoice() {
         Random rd = new Random();
-        blocknum = rd.nextInt(19);
+        blocknum = rd.nextInt(19)+1;
         randomX();
     }
 	
     //select block's starting point
 	public static void randomX() {
 		Random rd = new Random();
-		if(blocknum==0) {
+		if(blocknum==19) {
 			y = rd.nextInt(horizontal);
 		}
 		else if((blocknum==2)||(blocknum==3)||(blocknum==5)||(blocknum==8)||(blocknum==10)||(blocknum==12)||(blocknum==14)||(blocknum==16)||(blocknum==18)) {
@@ -120,7 +120,7 @@ public class gamethread extends Thread {
 	
 	//judge whether block can go down or not
     public static void blockdownreferee() {
-   	 if(blocknum==0) {
+    	if(blocknum==19) {
             if((x>vertical-5)||(board[x+4][y]!=0))
                  threadflag=1;
             else {
@@ -247,7 +247,7 @@ public class gamethread extends Thread {
             }
        }
        else if(blocknum==14) {
-            if((x>vertical-4)||(board[x+1][y]!=0)||(board[x+2][y+1]!=0)||(board[x+2][y+2]!=0))
+            if((x>vertical-3)||(board[x+1][y]!=0)||(board[x+2][y+1]!=0)||(board[x+2][y+2]!=0))
                  threadflag=1;
             else {
                  flag=0;
@@ -295,7 +295,7 @@ public class gamethread extends Thread {
 
 	//reflect block's state on board(which is Array)
     public static void setblock() {
-        if(blocknum==0) {
+        if(blocknum==19) {
              board[x][y] = flag;
              board[x+1][y] = flag;
              board[x+2][y] = flag;

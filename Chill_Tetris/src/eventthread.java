@@ -3,14 +3,14 @@ import java.awt.event.KeyListener;
 
 public class eventthread extends Thread implements KeyListener {
 	
-	static int x; static int y;
+	static int x, y, flag;
 
 	public void run() {
 		preset();
 	}
 	
 	public void preset() {
-		x = gamethread.x; y =  gamethread.y;
+		x =gamethread.x; y =gamethread.y; flag =gamethread.flag;
 	}
 
 	@Override
