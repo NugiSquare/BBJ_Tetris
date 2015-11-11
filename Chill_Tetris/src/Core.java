@@ -56,26 +56,26 @@ public class Core extends JFrame {
         		if(block[i][j].getName().equals("0")) {
         			block[i][j].setBackground(Color.BLACK);
         		}
-        		else if(block[i][j].getName().equals("1") || block[i][j].getName().equals("19")) {
+        		else if(block[i][j].getName().equals("1") || block[i][j].getName().equals("2")) {
         			block[i][j].setBackground(Color.CYAN);
         		}
-        		else if(block[i][j].getName().equals("2")) {
-        			block[i][j].setBackground(Color.YELLOW);
-        		}
-        		else if(block[i][j].getName().equals("4")) {
-        			block[i][j].setBackground(Color.GREEN);
-        		}
-        		else if(block[i][j].getName().equals("5") || block[i][j].getName().equals("14")) {
-        			block[i][j].setBackground(Color.RED);
-        		}
-        		else if(block[i][j].getName().equals("6") || block[i][j].getName().equals("7") || block[i][j].getName().equals("8") || block[i][j].getName().equals("9")) {
+        		else if(block[i][j].getName().equals("3") || block[i][j].getName().equals("4") || block[i][j].getName().equals("5") || block[i][j].getName().equals("6")) {
         			block[i][j].setBackground(Color.BLUE);
         		}
-        		else if(block[i][j].getName().equals("10") || block[i][j].getName().equals("11") || block[i][j].getName().equals("12") || block[i][j].getName().equals("13")) {
+        		else if(block[i][j].getName().equals("7") || block[i][j].getName().equals("8") || block[i][j].getName().equals("9") || block[i][j].getName().equals("10")) {
         			block[i][j].setBackground(Color.ORANGE);
         		}
-        		else if(block[i][j].getName().equals("15") || block[i][j].getName().equals("16") || block[i][j].getName().equals("17") || block[i][j].getName().equals("18")) {
-        			block[i][j].setBackground(Color.MAGENTA);
+        		else if(block[i][j].getName().equals("11")) {
+        			block[i][j].setBackground(Color.YELLOW);
+        		}
+        		else if(block[i][j].getName().equals("12") || block[i][j].getName().equals("13")) {
+        			block[i][j].setBackground(Color.GREEN);
+        		}
+        		else if(block[i][j].getName().equals("14") || block[i][j].getName().equals("15") || block[i][j].getName().equals("16") || block[i][j].getName().equals("17")) {
+        			block[i][j].setBackground(Color.ORANGE);
+        		}
+        		else if(block[i][j].getName().equals("18") || block[i][j].getName().equals("19")) {
+        			block[i][j].setBackground(Color.RED);
         		}
         		else
         			block[i][j].setBackground(Color.WHITE);
