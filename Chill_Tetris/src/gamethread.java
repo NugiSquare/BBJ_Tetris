@@ -464,15 +464,15 @@ public class gamethread extends Thread {
 		//Case C
 		else if(blocknum==7) {
 			board[x][y+2] = flag;
+			board[x+1][y] = flag;
 			board[x+1][y+1] = flag;
 			board[x+1][y+2] = flag;
-			board[x+1][y+3] = flag;
 		}
 		else if(blocknum==8) {
 			board[x][y] = flag;
-			board[x][y+1] = flag;
-			board[x][y+2] = flag;
-			board[x+1][y+2] = flag;
+			board[x+1][y] = flag;
+			board[x+2][y] = flag;
+			board[x+2][y+1] = flag;
 		}
 		else if(blocknum==9) {
 			board[x][y] = flag;
@@ -552,127 +552,6 @@ public class gamethread extends Thread {
 			board[x+1][y+1] = flag;
 			board[x+2][y] = flag;
 		}
-
-        if(blocknum==19) {
-             board[x][y] = flag;
-             board[x+1][y] = flag;
-             board[x+2][y] = flag;
-             board[x+3][y] = flag;
-        }
-        else if(blocknum==1) {
-             board[x][y] = flag;
-             board[x][y+1] = flag;
-             board[x][y+2] = flag;
-             board[x][y+3] = flag;
-        }
-        ////
-        else if(blocknum==2) {
-             board[x][y] = flag;
-             board[x][y+1] = flag;
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-        }
-        ////
-        else if(blocknum==3) {
-             board[x][y] = flag;
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+2][y+1] = flag;
-        }
-        else if(blocknum==4) {
-             board[x][y+1] = flag;
-             board[x][y+2] = flag;
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-        }
-        ////
-        else if(blocknum==5) {
-             board[x][y+1] = flag;
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+2][y] = flag;
-        }
-        else if(blocknum==6) {
-             board[x][y] = flag;
-             board[x][y+1] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-        }
-        ////
-        else if(blocknum==7) {
-             board[x][y] = flag;
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-        }
-        else if(blocknum==8) {
-             board[x][y+1] = flag;
-             board[x][y+2] = flag;
-             board[x+1][y+1] = flag;
-             board[x+2][y+1] = flag;
-        }
-        else if(blocknum==9) {
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-             board[x+2][y+2] = flag;
-        }
-        else if(blocknum==10) {
-             board[x][y+1] = flag;
-             board[x+1][y+1] = flag;
-             board[x+2][y] = flag;
-             board[x+2][y+1] = flag;
-        }
-        ////
-        else if(blocknum==11) {
-             board[x][y+2] = flag;
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-        }
-        else if(blocknum==12) {
-             board[x][y+1] = flag;
-             board[x+1][y+1] = flag;
-             board[x+2][y+1] = flag;
-             board[x+2][y+2] = flag;
-        }
-        else if(blocknum==13) {
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-             board[x+2][y] = flag;
-        }
-        else if(blocknum==14) {
-             board[x][y] = flag;
-             board[x][y+1] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-        }
-        ////
-        else if(blocknum==15) {
-             board[x][y+1] = flag;
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-        }
-        else if(blocknum==16) {
-             board[x][y+1] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-             board[x+2][y+1] = flag;
-        }
-        else if(blocknum==17) {
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+1][y+2] = flag;
-             board[x+2][y+1] = flag;
-        }
-        else if(blocknum==18) {
-             board[x][y+1] = flag;
-             board[x+1][y] = flag;
-             board[x+1][y+1] = flag;
-             board[x+2][y+1] = flag;
-        }
     }
     public static int checkRight()
     {
