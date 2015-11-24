@@ -183,7 +183,13 @@ public class Core extends JFrame {
         exit.setBounds(0,0,50,40);
         exit.setBackground(Color.gray);
         panel4.add(exit);
-//        exit.addActionListener(button);
+        exit.addActionListener(new ActionListener()
+        {
+        	public void actionPerformed(ActionEvent arg0)
+        	{
+        		System.exit(0);
+        	}
+        });
     }
 	
 	public void setsize(int a, int b) {
